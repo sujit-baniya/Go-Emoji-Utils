@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/tmdvs/Go-Emoji-Utils/utils"
+	"github.com/lukasz-horonziak/Go-Emoji-Utils/utils"
 )
 
 // SearchResult - Occurence of an emoji in a string
@@ -55,7 +55,6 @@ func Find(emojiString string, input string) (result SearchResult, err error) {
 
 // FindAll - Find all instances of emoji
 func FindAll(input string) (detectedEmojis SearchResults) {
-
 	// Convert our string to UTF runes
 	runes := []rune(input)
 
@@ -64,7 +63,6 @@ func FindAll(input string) (detectedEmojis SearchResults) {
 
 	// Loop over each "word" in the string
 	for index, r := range runes {
-
 		// If this index has been flaged as a modifier we do
 		// not want to process it again
 		if detectedModifiers[index] {
@@ -73,12 +71,11 @@ func FindAll(input string) (detectedEmojis SearchResults) {
 
 		// Grab the initial hex value of this run
 		hexKey := utils.RunesToHexKey([]rune{r})
-
 		// Ignore any basic runes, we'll get funny partials
 		// that we dont care about
-		if len(hexKey) < 4 {
-			continue
-		}
+		//if len(hexKey) < 4 {
+		//	continue
+		//}
 
 		previousKey := hexKey
 		potentialMatches := Emojis

@@ -3,8 +3,8 @@ package tests
 import (
 	"testing"
 
+	emoji "github.com/lukasz-horonziak/Go-Emoji-Utils"
 	"github.com/stretchr/testify/assert"
-	emoji "github.com/tmdvs/Go-Emoji-Utils"
 )
 
 func BenchmarkSearch(b *testing.B) {
@@ -79,7 +79,7 @@ func TestRemoveAllEmojiChineseEnglishMixed(t *testing.T) {
 
 func TestRemoveAllEmojiJapanese(t *testing.T) {
 
-	str := "被害者は深刻な影響を🤮🤧受けるにもか💁かわらず、被害だと😇 🤠認識できるま👌🎍😍で時間がかかり"
+	str := "被害者は深刻な影響を🤮🤷受けるにもか💁かわらず、被害だと😇 🤠認識できるま👌🎍😍で時間がかかり"
 
 	matches := emoji.FindAll(str)
 	totalUniqueEmoji := len(matches)
@@ -93,7 +93,7 @@ func TestRemoveAllEmojiJapanese(t *testing.T) {
 
 func TestRemoveAllEmojiKorean(t *testing.T) {
 
-	str := "포기하고 싶은 순🤮간들 바💁로 그 순간   🤠빨리 '희망의🤧 스위치'😇👌🎍😍를 올리자. 찰칵! "
+	str := "포기하고 싶은 순🤮간들 바🅱️로 그 순간   🤠빨리 '희망의🤧 스위치'😇👌🎍😍를 올리자. 찰칵! "
 
 	matches := emoji.FindAll(str)
 	totalUniqueEmoji := len(matches)
@@ -107,7 +107,7 @@ func TestRemoveAllEmojiKorean(t *testing.T) {
 
 func TestOutOfRangeError(t *testing.T) {
 
-	str := "武柳💁👌🎍😍昊雨"
+	str := "武柳💁👌🎍1️⃣昊雨"
 
 	matches := emoji.FindAll(str)
 	totalUniqueEmoji := len(matches)

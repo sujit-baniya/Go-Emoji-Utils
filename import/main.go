@@ -8,10 +8,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
-	"github.com/tmdvs/Go-Emoji-Utils/utils"
+	"github.com/lukasz-horonziak/Go-Emoji-Utils/utils"
 
-	"github.com/tmdvs/Go-Emoji-Utils"
+	"github.com/lukasz-horonziak/Go-Emoji-Utils"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -25,7 +26,7 @@ func main() {
 	fmt.Println("Updating Emoji Definition using Emojipedia…")
 
 	// Grab the latest Apple Emoji Definitions
-	res, err := http.Get("https://emojipedia.org/apple/")
+	res, err := http.Get("https://emojipedia.org/twitter/twemoji-12.1.4/")
 	if err != nil {
 		panic(err)
 	}
@@ -54,7 +55,7 @@ func main() {
 			// Add this specific emoji to the lookups to complete
 			lookups <- lookup{
 				Name: title,
-				URL:  "https://emojipedia.org" + emojiPage,
+				URL:  "https://emojipedia.org" + strings.TrimPrefix(emojiPage, "/twitter/twemoji-12.1.4") ,
 			}
 		})
 
