@@ -10,9 +10,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/lukasz-horonziak/Go-Emoji-Utils/utils"
+	"github.com/sujit-baniya/Go-Emoji-Utils/utils"
 
-	"github.com/lukasz-horonziak/Go-Emoji-Utils"
+	"github.com/sujit-baniya/Go-Emoji-Utils"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -55,7 +55,7 @@ func main() {
 			// Add this specific emoji to the lookups to complete
 			lookups <- lookup{
 				Name: title,
-				URL:  "https://emojipedia.org" + strings.TrimPrefix(emojiPage, "/twitter/twemoji-12.1.4") ,
+				URL:  "https://emojipedia.org" + strings.TrimPrefix(emojiPage, "/twitter/twemoji-12.1.4"),
 			}
 		})
 

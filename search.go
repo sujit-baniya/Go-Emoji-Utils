@@ -4,7 +4,8 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/lukasz-horonziak/Go-Emoji-Utils/utils"
+	emojis "github.com/kyokomi/emoji/v2"
+	"github.com/sujit-baniya/Go-Emoji-Utils/utils"
 )
 
 // SearchResult - Occurence of an emoji in a string
@@ -26,6 +27,10 @@ func (results SearchResults) IndexOf(result interface{}) int {
 	}
 
 	return -1
+}
+
+func Parse(emojiString string) string {
+	return emojis.Sprint(emojiString)
 }
 
 // Find a specific emoji character within a srting
